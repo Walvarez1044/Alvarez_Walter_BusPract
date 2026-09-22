@@ -5,12 +5,15 @@ public class Regular extends Reserva{
 
 // constructor
 
+
+
     public Regular() {
     }
 
-    public Regular(String dni, String pasajero, String origen, String destino, double cantKm, EstadoReserva estado) {
-        super(dni, pasajero, origen, destino, cantKm, estado);
+   public Regular(String dni, String pasajero, String origen, String destino, double cantKm) {
     }
+
+
     //to string
 
 

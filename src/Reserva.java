@@ -19,7 +19,7 @@ public abstract class Reserva implements Comparable<Reserva> {
     public Reserva() {
     }
 
-    public Reserva(String dni, String pasajero, String origen, String destino, double cantKm, EstadoReserva estado) {
+    public Reserva(String dni, String pasajero, String origen, String destino, double cantKm) {
         this.id = contador++;
         this.dni = dni;
         this.pasajero = pasajero;
@@ -126,7 +126,8 @@ public abstract class Reserva implements Comparable<Reserva> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Reserva reserva)) return false;
+        if (!(o instanceof Reserva)) return false;
+        Reserva reserva = (Reserva) o;
         return Objects.equals(dni, reserva.dni) && Objects.equals(origen, reserva.origen) && Objects.equals(destino, reserva.destino);
     }
 

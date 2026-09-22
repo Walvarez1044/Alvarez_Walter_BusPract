@@ -5,13 +5,14 @@ public class Premium extends Reserva implements I_SeguroDeViaje {
 
     private double montoAsegurado;
 
+    public Premium(String dni, String pasajero, String origen, String destino, double cantKm, double montoAsegurado) {
+        super(dni, pasajero, origen, destino, cantKm);
+        this.montoAsegurado = montoAsegurado;
+    }
     public Premium() {
     }
 
-    public Premium(String dni, String pasajero, String origen, String destino, double cantKm, EstadoReserva estado, double montoAsegurado) {
-        super(dni, pasajero, origen, destino, cantKm, estado);
-        this.montoAsegurado = montoAsegurado;
-    }
+
 
     public void setMontoAsegurado(double montoAsegurado) {
         this.montoAsegurado = montoAsegurado;

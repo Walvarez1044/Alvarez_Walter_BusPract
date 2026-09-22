@@ -4,13 +4,15 @@ import java.util.Collections;
 
 public class GestionEmpresaCostaBus {
 
-    List<Reserva> reservas;
+    private  List<Reserva> reservas;
 
     public GestionEmpresaCostaBus(List<Reserva> reservas) {
         this.reservas = new ArrayList<>();
     }
 
-    
+    public GestionEmpresaCostaBus() {
+
+    }
 
     //Métodos mínimos requeridos
     //agregarReserva(...)
@@ -37,8 +39,20 @@ public class GestionEmpresaCostaBus {
     //o:
     //
     //No se pudo agregar: la reserva ya existe.
+
+
     //buscarPorNumero(int numero)
-    //
+
+    public Reserva buscarPorNumero (int numBuscado){
+        for (Reserva reserva : reservas){
+            if(reserva.getId() == numBuscado){
+                return reserva;
+            }
+        }
+        return null;
+    }
+
+
     //Debe devolver:
     //
     //la reserva encontrada;
@@ -47,11 +61,19 @@ public class GestionEmpresaCostaBus {
     //Ejemplo:
     //
     //Reserva r = empresa.buscarPorNumero(3);
+
+
+    
     //cambiarEstado(int numero, EstadoReserva nuevoEstado)
     //
     //Debe buscar la reserva por número y modificar su estado.
     //
     //Si no existe, debe informar la situación.
+
+    public Reserva cambiarEstado(in)
+
+
+
     //
     //listarPorEstado(EstadoReserva estado)
     //
