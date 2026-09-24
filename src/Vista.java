@@ -127,7 +127,7 @@ public class Vista {
                     System.out.println("Ingrese el numero de Reserva que desea cambiar de Estado");
                     int num = entrada.nextInt();
                     entrada.nextLine();
-                    System.out.println("Estados: PENDIENTE, CONFIRMADA, VIAJANDO, CANCELADA");
+
                     EstadoReserva estado = EstadoReserva.valueOf(entrada.nextLine().toUpperCase());
 
                     if (gestor.cambiarEstado(num, estado)) {

@@ -73,13 +73,17 @@ public class GestionEmpresaCostaBus {
     public boolean cambiarEstado(int num, EstadoReserva estado){
         Reserva cambiar = buscarPorNumero(num);
         if(cambiar != null){
-            cambiar.setEstado(estado);
 
+            cambiar.setEstado(estado);
             return true;
-        }
+            }
+
 
         return false;
-    }
+        }
+
+
+
     //
     //listarPorEstado(EstadoReserva estado)
     //
