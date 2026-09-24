@@ -25,7 +25,6 @@ public class Premium extends Reserva implements I_SeguroDeViaje {
         if(getCantKm() > 800){
             return precio*0.9;
         }
-
         return precio;
     }
 

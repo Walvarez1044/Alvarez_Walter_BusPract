@@ -125,9 +125,8 @@ public abstract class Reserva implements Comparable<Reserva> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Reserva)) return false;
-        Reserva reserva = (Reserva) o;
+
+        if (!(o instanceof Reserva reserva)) return false;
         return Objects.equals(dni, reserva.dni) && Objects.equals(origen, reserva.origen) && Objects.equals(destino, reserva.destino);
     }
 
@@ -135,6 +134,7 @@ public abstract class Reserva implements Comparable<Reserva> {
     public int hashCode() {
         return Objects.hash(dni, origen, destino);
     }
+
 
     //compareTo
 

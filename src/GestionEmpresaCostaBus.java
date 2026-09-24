@@ -1,17 +1,15 @@
+import enumeradores.EstadoReserva;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
 public class GestionEmpresaCostaBus {
 
-    private  List<Reserva> reservas;
-
-    public GestionEmpresaCostaBus(List<Reserva> reservas) {
-        this.reservas = new ArrayList<>();
-    }
+    List<Reserva> reservas;
 
     public GestionEmpresaCostaBus() {
-
+        this.reservas = new ArrayList<>();
     }
 
     //Métodos mínimos requeridos
@@ -19,10 +17,12 @@ public class GestionEmpresaCostaBus {
     //
 
     public boolean agregarReserva(Reserva reserva){
-        if(!reservas.contains(reserva)){
-            return reservas.add(reserva);
+        if(reservas.contains(reserva)){
+            return false;
         }
-        return false;
+        reservas.add(reserva);
+
+        return true;
     }
     //Debe:
     //
@@ -63,17 +63,23 @@ public class GestionEmpresaCostaBus {
     //Reserva r = empresa.buscarPorNumero(3);
 
 
-    
+
     //cambiarEstado(int numero, EstadoReserva nuevoEstado)
     //
     //Debe buscar la reserva por número y modificar su estado.
     //
     //Si no existe, debe informar la situación.
 
-    public Reserva cambiarEstado(in)
+    public boolean cambiarEstado(int num, EstadoReserva estado){
+        Reserva cambiar = buscarPorNumero(num);
+        if(cambiar != null){
+            cambiar.setEstado(estado);
 
+            return true;
+        }
 
-
+        return false;
+    }
     //
     //listarPorEstado(EstadoReserva estado)
     //
@@ -82,37 +88,60 @@ public class GestionEmpresaCostaBus {
     //Por ejemplo:
     //
     //listarPorEstado(EstadoReserva.CONFIRMADA);
+
+    public ArrayList<Reserva> listarPorEstado(EstadoReserva estadoListar) {
+        ArrayList <Reserva> listaAux = new ArrayList<>();
+        for(Reserva reserva : reservas){
+            if(reserva.getEstado() == estadoListar){
+                listaAux.add(reserva);
+            }
+        }
+        return listaAux;
+    }
+
+
     //facturacionTotal()
     //
     //Debe devolver la suma de los precios de todas las reservas cargadas.
     //
-    //Debe utilizar polimorfismo.
-    //
-    //No debe hacer algo como:
-    //
+    //Debe utilizar polimorfismo.No debe hacer algo como:
     //if (r instanceof ReservaPremium)
-    //
-    //para calcular el precio.
-    //
-    //Debe simplemente utilizar:
-    //
-    //r.calcularPrecio()
+    //para calcular el precio.Debe simplemente utilizar: r.calcularPrecio()
+
+    public double facturacionTotal(){
+        double total = 0;
+
+        for(Reserva reserva : reservas){
+            total+= reserva.calcularPrecio();
+        }
+        return total;
+    }
+
+
+
+
     //reservaMasCara()
     //
-    //Debe devolver la reserva cuyo precio sea mayor.
-    //
-    //Si no hay reservas, debe devolver:
-    //
-    //null
+    //Debe devolver la reserva cuyo precio sea mayor.Si no hay reservas, debe devolver: null
+
+    public Reserva reservaMasCara(){
+        return Collections.max(reservas);
+    }
+
+
     //listarOrdenadas()
     //
-    //Debe devolver las reservas ordenadas utilizando el orden natural definido mediante:
-    //
-    //Comparable
-    //
-    //Debe poder utilizar:
-    //
-    //Collections.sort(...)
+    //Debe devolver las reservas ordenadas utilizando el orden natural definido mediante: Comparable
+    //Debe poder utilizar: Collections.sort(...)
+
+    public ArrayList<Reserva> listarOrdenAsc(){
+        ArrayList<Reserva> listaAsc = new ArrayList<>(reservas);
+
+        Collections.sort(listaAsc);
+
+        return listaAsc;
+    }
+
 
 
 }

@@ -10,9 +10,9 @@ public class Regular extends Reserva{
     public Regular() {
     }
 
-   public Regular(String dni, String pasajero, String origen, String destino, double cantKm) {
+    public Regular(String dni, String pasajero, String origen, String destino, double cantKm) {
+        super(dni, pasajero, origen, destino, cantKm);
     }
-
 
     //to string
 
@@ -24,7 +24,7 @@ public class Regular extends Reserva{
 
     @Override
     public double calcularPrecio() {
-        return 2000* 80*getCantKm();
+        return 2000+ 80*getCantKm();
     }
 
     @Override
